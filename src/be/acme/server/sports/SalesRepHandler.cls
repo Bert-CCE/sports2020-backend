@@ -29,7 +29,6 @@ class be.acme.server.sports.SalesRepHandler
         iRequest as OpenEdge.Web.IWebRequest
         ):
         define variable lResponse as OpenEdge.Net.HTTP.IHttpResponse no-undo .
-//        define variable lParamDictionary as CharacterDictionary no-undo .
         define variable hQry as handle no-undo.
         define variable htt as handle no-undo.
         define variable cWhere as character no-undo.
@@ -43,8 +42,6 @@ class be.acme.server.sports.SalesRepHandler
           .          
 
         empty temp-table eSalesRep.
-        // lParamDictionary = ListHelper:AlternatingListToDictionary(iRequest:GetContextValue ("QUERY_STRING":U),
-        //                                                            "&":U, "=":U).
 
         assign cWhere = substitute("for each SalesRep no-lock where true") .
         // ter info: querystring kan je ophalen dmv iRequest:GetContextValue ("QUERY_STRING")

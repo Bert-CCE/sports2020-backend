@@ -2,6 +2,7 @@
 .metadata
 .sharedavm
 .sonarlint
-servers
+/servers
 db
 rcode
+swagger

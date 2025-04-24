@@ -1,0 +1,22 @@
+[AppServer.SessMgr]
+    agentStartupParam=-T "${catalina.base}/temp" -pf cfg/sports2020.sm.pf
+
+[AppServer.Agent]
+    workDir=${CATALINA_BASE}/../..
+
+[AppServer.Agent.${oepas-app}]    
+    PROPATH=${CATALINA_BASE}/webapps/ROOT/WEB-INF/openedge,${CATALINA_BASE}/../../rcode,${CATALINA_BASE}/../../src,${CATALINA_BASE}/ablapps/pasoe_sports2020/openedge,${CATALINA_BASE}/openedge,${DLC}/tty,${DLC}/tty/netlib/OpenEdge.Net.apl,${CATALINA_BASE}/../..
+
+[${oepas-app}.${oepas-webapp}.APSV]
+    adapterEnabled=0
+
+[${oepas-app}.${oepas-webapp}.SOAP]
+    adapterEnabled=0
+
+[${oepas-app}.${oepas-webapp}.REST]
+    adapterEnabled=0
+
+[${oepas-app}.${oepas-webapp}.WEB]
+    defaultHandler=OpenEdge.Web.CompatibilityHandler
+    handler1=be.acme.server.sports.SalesRepHandler: /SalesRep
+

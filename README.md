@@ -11,7 +11,7 @@ Editeer openedge-project.json en pas aan zodat jouw folder/naam/db juist staan.
 ### Creatie PASOE
 Pas in onderstaande de paden en naam van de pasoe aan zodat het overeen komt met jouw omgeving
 
-```
+```shell 
 mkdir servers
 cd servers
 c:/Progress/oe128/servers/pasoe/bin/tcman.bat create -f -p 10101 -P 10102 -s 10103 -Z dev -v pasoe_sports2020
@@ -26,8 +26,35 @@ Gebruik standaard tasks in VSCode voor starten/stoppen
 
 ## Swagger
 
-Editeer onder {pasoe}/webapps/ROOT/swagger-config.json en {pasoe}/webapps/ROOT/swagger-sports2020.yaml. Probeer in de yaml zoveel mogelijk aan te vullen, bijv. welke parameters nodig zijn, welke foutboodschappen en responses kunnen verwacht worden.
+Download **swagger-ui** (https://github.com/swagger-api/swagger-ui/tree/master/dist) en plaats onder {pasoe}/webapps/ROOT/static/swagger. 
+Editeer swagger-initializer.js:
+```js
+window.onload = function() {
+  //<editor-fold desc="Changeable Configuration Block">
 
-Je handlers dien je aan te geven in {pasoe}/conf/openedge.properties (zie voorbeeld handler1). Bij het definiëren van volgende handlers mag er geen gat zitten. 
+  // the following lines will be replaced by docker/configurator, when it runs in a docker-container
+  window.ui = SwaggerUIBundle({
+    url: "/swagger-sports2020.yaml",
+    dom_id: '#swagger-ui',    
+    deepLinking: true,
+    persistAuthorization: true,            
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout"
+  });
+
+};
+```
+
+Editeer onder {pasoe}/webapps/ROOT/swagger-config.json en {pasoe}/webapps/ROOT/swagger-sports2020.yaml. 
+
+Probeer in de yaml zoveel mogelijk aan te vullen, bijv. welke parameters nodig zijn, welke foutboodschappen en responses kunnen verwacht worden.
+
+Je **handlers** dien je aan te geven in **{pasoe}/conf/openedge.properties** (zie voorbeeld handler1). Bij het definiëren van volgende handlers mag er geen gat zitten. 
 
 Swagger zal beschikbaar zijn onder http://localhost:10101/static/swagger/

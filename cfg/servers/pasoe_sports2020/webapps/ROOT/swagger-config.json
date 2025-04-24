@@ -1,0 +1,11 @@
+{
+    "urls": [
+      {
+        "url": "/swagger-sports2020",
+        "name": "Sports2020 pasoe_sports2020@localhost"
+      }
+    ],
+    "plugins": [
+      "topbar"
+    ]
+  }
