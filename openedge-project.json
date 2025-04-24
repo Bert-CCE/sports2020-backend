@@ -1,0 +1,56 @@
+{
+  "name": "sports2020",
+  "version": "1.0",
+  "oeversion": "12.8",
+  "graphicalMode": false,
+  "charset": "utf-8",
+  "buildDirectory": "rcode",
+  "workingDirectory": "C:\\cce\\workspaces\\sports2020",
+  "extraParameters": "-inp 40000 -tok 4000 -rereadnolock -s 500 -mmax 65534 -h 20 -zn -basekey ini -zdlc c:\\progress\\oe128",
+  "numThreads": 4,
+  "buildPath": [
+    {
+      "path": "rcode",
+      "type": "propath"
+    },
+    {
+      "path": "src",
+      "type": "source"
+    },
+    {
+      "path": ".",
+      "type": "propath"
+    },    
+    {
+      "type": "propath",
+      "path": "${DLC}"
+    },
+    {
+      "type": "propath",
+      "path": "${DLC}/bin"
+    },
+    {
+      "type": "propath",
+      "path": "${DLC}/gui"
+    },
+    {
+      "path": "${DLC}/gui/OpenEdge.Core.apl",
+      "type": "propath",
+      "documentation": "docs/corelib.json"
+    },
+    {
+      "path": "${DLC}/gui/netlib/OpenEdge.Net.apl",
+      "type": "propath",
+      "documentation": "docs/netlib.json"
+    }
+  ],
+  "dbConnections": [
+
+    {
+      "name": "sports2020",
+      "connect": "-db db/sports2020 -ld sports2020",
+      "schemaFile": "db/sports2020.df",
+      "aliases": []
+    }
+  ]
+}

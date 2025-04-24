@@ -1,0 +1,41 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start PASOE pasoe_sports2020",
+            "icon": {
+                "id": "run-all",
+                "color": "terminal.ansiGreen"
+            },
+            "type": "shell",
+            "command": " bin\\tcman.bat pasoestart -v -json -timeout 600",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/servers/pasoe_sports2020"
+            }
+        },
+        {
+            "label": "Stop PASOE pasoe_sports2020",
+            "icon": {
+                "id": "close-all",
+                "color": "terminal.ansiRed"
+            },
+            "type": "shell",
+            "command": " bin\\tcman.bat stop",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/servers/pasoe_sports2020"
+            }
+        }
+    ]
+}
